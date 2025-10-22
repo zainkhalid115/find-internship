@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= internship.title %> - Find Internship</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .internship-details {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: left;
+            margin-top: 20px;
+        }
+        .internship-details h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .internship-details h3 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        .internship-details p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        .internship-details strong {
+            color: #333;
+        }
+        .internship-details ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .internship-details ul li {
+            margin-bottom: 5px;
+        }
+        .apply-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .apply-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="internship-details">
+            <h2><%= internship.title %></h2>
+            <p><strong>Company:</strong> <%= internship.company %></p>
+            <p><strong>Location:</strong> <%= internship.location %></p>
+            <p><strong>Posted By:</strong> <%= internship.postedBy ? internship.postedBy.username : 'Anonymous' %></p>
+            <p><strong>Posted On:</strong> <%= internship.datePosted.toLocaleDateString() %></p>
+
+            <h3>Description</h3>
+            <p><%= internship.description %></p>
+
+            <% if (internship.requirements && internship.requirements.length > 0) { %>
+                <h3>Requirements</h3>
+                <ul>
+                    <% internship.requirements.forEach(function(req) { %>
+                        <li><%= req %></li>
+                    <% }); %>
+                </ul>
+            <% } %>
+
+            <a href="<%= internship.applicationLink %>" target="_blank" class="apply-button">Apply Now</a>
+        </div>
+        <p style="margin-top: 20px;"><a href="/internships">Back to All Internships</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Find Internship</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Find Internship!</h2>
+        <p>Your one-stop solution for finding the perfect internship.</p>
+        <p>
+            <a href="/auth/register" class="button">Register</a> or 
+            <a href="/auth/login" class="button">Login</a> to get started.
+        </p>
+
+        <!-- Display flash messages -->
+        <% if (success_msg) { %>
+            <div class="alert alert-success"><%= success_msg %></div>
+        <% } %>
+        <% if (error_msg) { %>
+            <div class="alert alert-danger"><%= error_msg %></div>
+        <% } %>
+        <% if (error) { %>
+            <div class="alert alert-danger"><%= error %></div>
+        <% } %>
+    </div>
+</body>
+</html>
